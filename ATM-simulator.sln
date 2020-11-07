@@ -3,7 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM-Interface", "ATM-Interface\ATM-Interface.csproj", "{9DE88418-8E0F-49B9-8923-02E0EB5A305B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATM-Interface", "ATM-Interface\ATM-Interface.csproj", "{9DE88418-8E0F-49B9-8923-02E0EB5A305B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{24201E25-3E96-449E-B518-9131587B513D} = {24201E25-3E96-449E-B518-9131587B513D}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ATM-processor", "ATM-processor\ATM-processor.vcxproj", "{24201E25-3E96-449E-B518-9131587B513D}"
 EndProject
@@ -30,8 +33,7 @@ Global
 		{9DE88418-8E0F-49B9-8923-02E0EB5A305B}.Release|x86.ActiveCfg = Release|Any CPU
 		{9DE88418-8E0F-49B9-8923-02E0EB5A305B}.Release|x86.Build.0 = Release|Any CPU
 		{24201E25-3E96-449E-B518-9131587B513D}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{24201E25-3E96-449E-B518-9131587B513D}.Debug|x64.ActiveCfg = Debug|x64
-		{24201E25-3E96-449E-B518-9131587B513D}.Debug|x64.Build.0 = Debug|x64
+		{24201E25-3E96-449E-B518-9131587B513D}.Debug|x64.ActiveCfg = Debug|Win32
 		{24201E25-3E96-449E-B518-9131587B513D}.Debug|x86.ActiveCfg = Debug|Win32
 		{24201E25-3E96-449E-B518-9131587B513D}.Debug|x86.Build.0 = Debug|Win32
 		{24201E25-3E96-449E-B518-9131587B513D}.Release|Any CPU.ActiveCfg = Release|Win32

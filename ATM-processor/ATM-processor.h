@@ -1,10 +1,16 @@
 ﻿#pragma once
+#include "StateMachine.h"
 
 using namespace System;
 
 namespace ATMprocessor {
-	public ref class Class1
+	public ref class Processor
 	{
-		// TODO: Добавьте сюда свои методы для этого класса.
+	private:
+		::StateMachine* _machine;
+	public:
+		void turnOnMachine();
+		void turnOffMachine();
+
 	};
 }

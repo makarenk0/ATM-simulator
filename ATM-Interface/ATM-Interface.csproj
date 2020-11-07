@@ -11,4 +11,8 @@
     <Folder Include="Tools\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ATM-processor\ATM-processor.vcxproj" />
+  </ItemGroup>
+
 </Project>
