@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+using ATM_Interface.ViewModel;
+using ATM_Interface.Tools.Navigation;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -16,11 +19,19 @@ namespace ATM_Interface.View
     /// <summary>
     /// Логика взаимодействия для EnterCardNumberScreen.xaml
     /// </summary>
-    public partial class EnterCardNumberScreen : UserControl
+    public partial class EnterCardNumberScreen : UserControl, INavigatable
     {
+        private EnterCardNumberViewModel _viewModel;
         public EnterCardNumberScreen()
         {
+            _viewModel = new EnterCardNumberViewModel();
+            DataContext = _viewModel;
             InitializeComponent();
+        }
+
+        public void KeyPadClick(string keyCode)
+        {
+           
         }
     }
 }
