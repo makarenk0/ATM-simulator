@@ -17,7 +17,8 @@
             </Grid.ColumnDefinitions>
 
 
-            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20">Enter your card:</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20">Enter your card:</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Text="{Binding CardNumber, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
         
     </Grid>
 

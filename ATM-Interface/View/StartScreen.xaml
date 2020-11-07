@@ -35,18 +35,18 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Grid.Row="0" FontSize="40">1</Button>
-            <Button Grid.Column="1" Grid.Row="0" FontSize="40">2</Button>
-            <Button Grid.Column="2" Grid.Row="0" FontSize="40">3</Button>
-            <Button Grid.Column="0" Grid.Row="1" FontSize="40">4</Button>
-            <Button Grid.Column="1" Grid.Row="1" FontSize="40">5</Button>
-            <Button Grid.Column="2" Grid.Row="1" FontSize="40">6</Button>
-            <Button Grid.Column="0" Grid.Row="2" FontSize="40">7</Button>
-            <Button Grid.Column="1" Grid.Row="2" FontSize="40">8</Button>
-            <Button Grid.Column="2" Grid.Row="2" FontSize="40">9</Button>
-            <Button Grid.Column="0" Grid.Row="3" FontSize="40" Background="DarkRed">Cancel</Button>
-            <Button Grid.Column="1" Grid.Row="3" FontSize="40">0</Button>
-            <Button Grid.Column="2" Grid.Row="3" FontSize="40" Background="Green">Enter</Button>
+            <Button Grid.Column="0" Grid.Row="0" FontSize="40" Command="{Binding BottomKeyPadCommand}" CommandParameter="N1">1</Button>
+            <Button Grid.Column="1" Grid.Row="0" FontSize="40" Command="{Binding BottomKeyPadCommand}" CommandParameter="N2">2</Button>
+            <Button Grid.Column="2" Grid.Row="0" FontSize="40" Command="{Binding BottomKeyPadCommand}" CommandParameter="N3">3</Button>
+            <Button Grid.Column="0" Grid.Row="1" FontSize="40" Command="{Binding BottomKeyPadCommand}" CommandParameter="N4">4</Button>
+            <Button Grid.Column="1" Grid.Row="1" FontSize="40" Command="{Binding BottomKeyPadCommand}" CommandParameter="N5">5</Button>
+            <Button Grid.Column="2" Grid.Row="1" FontSize="40" Command="{Binding BottomKeyPadCommand}" CommandParameter="N6">6</Button>
+            <Button Grid.Column="0" Grid.Row="2" FontSize="40" Command="{Binding BottomKeyPadCommand}" CommandParameter="N7">7</Button>
+            <Button Grid.Column="1" Grid.Row="2" FontSize="40" Command="{Binding BottomKeyPadCommand}" CommandParameter="N8">8</Button>
+            <Button Grid.Column="2" Grid.Row="2" FontSize="40" Command="{Binding BottomKeyPadCommand}" CommandParameter="N9">9</Button>
+            <Button Grid.Column="0" Grid.Row="3" FontSize="40" Command="{Binding BottomKeyPadCommand}" CommandParameter="CANCEL" Background="DarkRed">Cancel</Button>
+            <Button Grid.Column="1" Grid.Row="3" FontSize="40" Command="{Binding BottomKeyPadCommand}" CommandParameter="N0">0</Button>
+            <Button Grid.Column="2" Grid.Row="3" FontSize="40" Command="{Binding BottomKeyPadCommand}" CommandParameter="ENTER" Background="Green">Enter</Button>
         </Grid>
 
 

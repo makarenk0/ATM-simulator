@@ -12,10 +12,42 @@ namespace ATM_Interface.ViewModel
 
         private INavigatable _screenContent;
 
+        private RelayCommand<object> _bottomKeypadCommand;
+        private RelayCommand<object> _sidesKeypadCommand;
+
         public StartScreenViewModel()
         {
             NavigationManager.Instance.Initialize(new InitializationNavigationModel(this));
             NavigationManager.Instance.Navigate(ViewType.EnterCardNumber);
+        }
+
+        public RelayCommand<Object> BottomKeyPadCommand
+        {
+            get
+            {
+                return _bottomKeypadCommand ?? (_bottomKeypadCommand = new RelayCommand<object>(BottomKeyPadClick,
+                    o => true));
+            }
+        }
+
+        public RelayCommand<Object> SidesKeyPadCommand
+        {
+            get
+            {
+                return _sidesKeypadCommand ?? (_sidesKeypadCommand = new RelayCommand<object>(SidesKeyPadClick,
+                    o => true));
+            }
+        }
+
+
+        private void BottomKeyPadClick(object o)
+        {
+            _screenContent.KeyPadClick(o.ToString());
+        }
+
+        private void SidesKeyPadClick(object o)
+        {
+            _screenContent.KeyPadClick(o.ToString());
         }
 
         public INavigatable Content 
