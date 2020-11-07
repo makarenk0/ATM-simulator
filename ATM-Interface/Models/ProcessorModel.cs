@@ -8,5 +8,10 @@ namespace ATM_Interface.Models
     class ProcessorModel
     {
         private Processor _processor;
+
+        public ProcessorModel()
+        {
+            _processor = new Processor();
+        }
     }
 }
