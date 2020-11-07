@@ -20,7 +20,8 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="5" Background="White"/>
-        <local:EnterCardNumberScreen Grid.Row="1" Grid.Column="1"></local:EnterCardNumberScreen>
+        
+        <ContentControl Grid.Row="1" Grid.Column="1" Name="_contentControl" Content="{Binding Content, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></ContentControl>
 
         <Grid Grid.Column="1" Grid.Row="2" Width="400" Height="280" HorizontalAlignment="Center">
             <Grid.RowDefinitions>

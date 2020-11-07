@@ -31,7 +31,7 @@ namespace ATM_Interface.View
 
         public void KeyPadClick(string keyCode)
         {
-           
+            _viewModel.KeyPadClick(keyCode);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ATM_Interface.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +21,7 @@ namespace ATM_Interface.View
     {
         public StartScreen()
         {
+            DataContext = new StartScreenViewModel();
             InitializeComponent();
         }
     }
