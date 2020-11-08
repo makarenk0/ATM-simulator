@@ -15,6 +15,9 @@ namespace ATM_Interface.ViewModel
         private RelayCommand<object> _bottomKeypadCommand;
         private RelayCommand<object> _sidesKeypadCommand;
 
+        private String _cardDisplayVisibility = "Hidden";
+        private bool _cardDisplay = false;
+
         public StartScreenViewModel()
         {
             NavigationManager.Instance.Initialize(new InitializationNavigationModel(this));
@@ -39,10 +42,32 @@ namespace ATM_Interface.ViewModel
             }
         }
 
+        public bool CardDisplay
+        {
+            get => _cardDisplay;
+            set => _cardDisplay = value;
+        }
+
+        public string CardDisplayVisibility 
+        { 
+            get => _cardDisplayVisibility;
+            set
+            {
+                _cardDisplayVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         private void BottomKeyPadClick(object o)
         {
             _screenContent.KeyPadClick(o.ToString());
+
+            if(_screenContent.CardDisplay() != CardDisplay)  //card display change state
+            {
+                CardDisplay = !CardDisplay;
+                CardDisplayVisibility = CardDisplay ? "Visible" : "Hidden";
+            }
         }
 
         private void SidesKeyPadClick(object o)
@@ -59,5 +84,7 @@ namespace ATM_Interface.ViewModel
                 OnPropertyChanged();
             }
         }
+
+       
     }
 }

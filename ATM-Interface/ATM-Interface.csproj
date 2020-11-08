@@ -8,7 +8,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="View\Images\Card.png" />
+    <None Remove="View\Images\ExactSlot.png" />
+    <None Remove="View\Images\slot.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ATM-processor\ATM-processor.vcxproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\Images\Card.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\ExactSlot.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\slot.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

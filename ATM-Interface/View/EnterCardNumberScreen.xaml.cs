@@ -33,5 +33,10 @@ namespace ATM_Interface.View
         {
             _viewModel.KeyPadClick(keyCode);
         }
+
+        public bool CardDisplay()
+        {
+            return _viewModel.CardDisplay;
+        }
     }
 }
