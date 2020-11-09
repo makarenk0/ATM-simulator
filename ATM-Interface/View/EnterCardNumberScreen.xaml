@@ -5,11 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ATM_Interface.View"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="540">
+             d:DesignHeight="450" d:DesignWidth="700">
     <Grid>
         
             <Grid.RowDefinitions>
                 <RowDefinition Height="80"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -19,6 +20,7 @@
 
         <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20">Enter your card:</TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Text="{Binding CardNumber, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Text="{Binding CardError, UpdateSourceTrigger=PropertyChanged}" Foreground="Red"></TextBlock>
         
     </Grid>
 

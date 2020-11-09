@@ -2,9 +2,13 @@
 
 #include <memory>
 #include <stack>
+#include <thread>
+
 #include "State.h"
+#include "CardsInfoWorker.h"
 
 typedef std::unique_ptr<State> StateRef;
+
 class StateMachine
 {
 public:
@@ -15,7 +19,7 @@ public:
 
 	void ProcessStateChanges();
 	StateRef& GetCurrentState();
-
+	
 private:
 	std::stack<StateRef> _states;
 	StateRef _newState;
@@ -23,5 +27,11 @@ private:
 	bool _isRemoving;
 	bool _isAdding;
 	bool _isReplacing;
+
+
+	void Updater();
+
+	bool _isRunning;
+	std::thread _updateThread;
 };
 

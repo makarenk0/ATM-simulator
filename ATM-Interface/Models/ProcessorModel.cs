@@ -11,7 +11,19 @@ namespace ATM_Interface.Models
 
         public ProcessorModel()
         {
-            _processor = new Processor();
+
         }
+
+
+        public void Init()
+        {
+            _processor = new Processor();
+            _processor.turnOnMachine();
+        }
+
+        //public Processor Processor { 
+            //get => _processor; 
+            //set => _processor = value; 
+        //}
     }
 }

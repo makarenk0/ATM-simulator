@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "StateMachine.h"
+#include <msclr\marshal_cppstd.h>
 
 using namespace System;
 
@@ -11,6 +12,6 @@ namespace ATMprocessor {
 	public:
 		void turnOnMachine();
 		void turnOffMachine();
-
+		bool handleInput(String^ path);
 	};
 }

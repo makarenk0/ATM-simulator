@@ -1,4 +1,5 @@
-﻿using ATM_Interface.Tools.Managers;
+﻿using ATM_Interface.Models;
+using ATM_Interface.Tools.Managers;
 using ATM_Interface.Tools.MVVM;
 using ATM_Interface.Tools.Navigation;
 using System;
@@ -20,6 +21,8 @@ namespace ATM_Interface.ViewModel
 
         public StartScreenViewModel()
         {
+            ProcessorModel m = new ProcessorModel();
+            m.Init();
             NavigationManager.Instance.Initialize(new InitializationNavigationModel(this));
             NavigationManager.Instance.Navigate(ViewType.EnterCardNumber);
         }
@@ -68,11 +71,16 @@ namespace ATM_Interface.ViewModel
                 CardDisplay = !CardDisplay;
                 CardDisplayVisibility = CardDisplay ? "Visible" : "Hidden";
             }
+            if (_screenContent.ServiceMode())
+            {
+                NavigationManager.Instance.Navigate(ViewType.ServiceMode);
+            }
         }
 
         private void SidesKeyPadClick(object o)
         {
             _screenContent.KeyPadClick(o.ToString());
+           
         }
 
         public INavigatable Content 

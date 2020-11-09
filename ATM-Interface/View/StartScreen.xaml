@@ -67,16 +67,16 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="1" Grid.Row="0" Width="100" Height="40" HorizontalAlignment="Right">
+            <Button Grid.Column="1" Grid.Row="0" Width="100" Height="40" HorizontalAlignment="Right" Command="{Binding SidesKeyPadCommand}" CommandParameter="L1">
                 <Polygon   Stretch="Fill"  Fill="Black" Points="0,0 0,30 0,10 30,10 30,-10 45,10 30,30 30,20 0,20 0,0 30,0 30,10 0,10" />
             </Button>
-            <Button Grid.Column="1" Grid.Row="1" Width="100" Height="40" HorizontalAlignment="Right">
+            <Button Grid.Column="1" Grid.Row="1" Width="100" Height="40" HorizontalAlignment="Right" Command="{Binding SidesKeyPadCommand}" CommandParameter="L2">
                 <Polygon   Stretch="Fill"  Fill="Black" Points="0,0 0,30 0,10 30,10 30,-10 45,10 30,30 30,20 0,20 0,0 30,0 30,10 0,10" />
             </Button>
-            <Button Grid.Column="1" Grid.Row="2" Width="100" Height="40" HorizontalAlignment="Right">
+            <Button Grid.Column="1" Grid.Row="2" Width="100" Height="40" HorizontalAlignment="Right" Command="{Binding SidesKeyPadCommand}" CommandParameter="L3">
                 <Polygon   Stretch="Fill"  Fill="Black" Points="0,0 0,30 0,10 30,10 30,-10 45,10 30,30 30,20 0,20 0,0 30,0 30,10 0,10" />
             </Button>
-            <Button Grid.Column="1" Grid.Row="3" Width="100" Height="40" HorizontalAlignment="Right">
+            <Button Grid.Column="1" Grid.Row="3" Width="100" Height="40" HorizontalAlignment="Right" Command="{Binding SidesKeyPadCommand}" CommandParameter="L4">
                 <Polygon   Stretch="Fill"  Fill="Black" Points="0,0 0,30 0,10 30,10 30,-10 45,10 30,30 30,20 0,20 0,0 30,0 30,10 0,10" />
             </Button>
         </Grid>
@@ -92,22 +92,22 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Grid.Row="0" Width="100" Height="40" HorizontalAlignment="Left">
+            <Button Grid.Column="0" Grid.Row="0" Width="100" Height="40" HorizontalAlignment="Left" Command="{Binding SidesKeyPadCommand}" CommandParameter="R1">
                 <Polygon   Stretch="Fill"  Fill="Black" Points="45,0 45,30 45,10 10,10 10,-10 0,10 10,30 10,20 45,20 45,0 10,0 10,10 45,10">
 
                 </Polygon>
             </Button>
-            <Button Grid.Column="0" Grid.Row="1" Width="100" Height="40" HorizontalAlignment="Left">
+            <Button Grid.Column="0" Grid.Row="1" Width="100" Height="40" HorizontalAlignment="Left" Command="{Binding SidesKeyPadCommand}" CommandParameter="R2">
                 <Polygon   Stretch="Fill"  Fill="Black" Points="45,0 45,30 45,10 10,10 10,-10 0,10 10,30 10,20 45,20 45,0 10,0 10,10 45,10">
 
                 </Polygon>
             </Button>
-            <Button Grid.Column="0" Grid.Row="2" Width="100" Height="40" HorizontalAlignment="Left">
+            <Button Grid.Column="0" Grid.Row="2" Width="100" Height="40" HorizontalAlignment="Left" Command="{Binding SidesKeyPadCommand}" CommandParameter="R3">
                 <Polygon   Stretch="Fill"  Fill="Black" Points="45,0 45,30 45,10 10,10 10,-10 0,10 10,30 10,20 45,20 45,0 10,0 10,10 45,10">
 
                 </Polygon>
             </Button>
-            <Button Grid.Column="0" Grid.Row="3" Width="100" Height="40" HorizontalAlignment="Left">
+            <Button Grid.Column="0" Grid.Row="3" Width="100" Height="40" HorizontalAlignment="Left" Command="{Binding SidesKeyPadCommand}" CommandParameter="R4">
                 <Polygon   Stretch="Fill"  Fill="Black" Points="45,0 45,30 45,10 10,10 10,-10 0,10 10,30 10,20 45,20 45,0 10,0 10,10 45,10">
 
                 </Polygon>

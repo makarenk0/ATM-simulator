@@ -2,7 +2,8 @@
 {
     internal enum ViewType
     {
-        EnterCardNumber
+        EnterCardNumber,
+        ServiceMode
     }
 
     interface INavigationModel

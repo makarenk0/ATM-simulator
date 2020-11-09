@@ -1,6 +1,7 @@
 ﻿using System;
 using ATM_Interface.View;
-using UserAddingView = ATM_Interface.View.EnterCardNumberScreen;
+using EnterCardNumberView = ATM_Interface.View.EnterCardNumberScreen;
+using ServiceModeView = ATM_Interface.View.ServiceModeScreen;
 
 namespace ATM_Interface.Tools.Navigation
 {
@@ -17,6 +18,9 @@ namespace ATM_Interface.Tools.Navigation
             {
                 case ViewType.EnterCardNumber:
                     ViewsDictionary.Add(viewType, new EnterCardNumberScreen());
+                    break;
+                case ViewType.ServiceMode:
+                    ViewsDictionary.Add(viewType, new ServiceModeScreen());
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(viewType), viewType, null);

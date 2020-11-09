@@ -1,13 +1,19 @@
 #include "pch.h"
 #include "StateMachine.h"
-
+#include "IdleState.h"  // for adding default idle state
 
 StateMachine::StateMachine()
 {
+	_isRunning = true;
+	this->AddState(StateRef(new IdleState(this)), true);
+	_updateThread = std::thread(&StateMachine::Updater, this);
 }
 
 StateMachine::~StateMachine()
 {
+	_isRunning = false;
+	_updateThread.join();
+
 }
 
 void StateMachine::AddState(StateRef newState, bool isReplacing) {
@@ -44,4 +50,13 @@ void StateMachine::ProcessStateChanges() {
 
 StateRef& StateMachine::GetCurrentState() {
 	return this->_states.top();
+}
+
+void StateMachine::Updater()
+{
+	while (_isRunning) {
+		GetCurrentState().get()->Update();
+		ProcessStateChanges();
+		std::this_thread::sleep_for(std::chrono::seconds(1));
+	}
 }
