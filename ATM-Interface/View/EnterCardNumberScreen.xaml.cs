@@ -38,5 +38,10 @@ namespace ATM_Interface.View
         {
             return _viewModel.CardDisplay;
         }
+
+        public void Init()
+        {
+            _viewModel.Init();
+        }
     }
 }

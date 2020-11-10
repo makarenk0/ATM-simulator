@@ -16,8 +16,7 @@ std::string IdleState::HandleInput(std::string key)
 {
 	if (key == "SERVICE_MODE") {
 		_data->machine->AddState(StateRef(new ServiceState(_data)), false);
-		_data->machine->ProcessStateChanges();
-		return "true";
+		return "service";
 	}
 	else if (_data->_cardsInfoWorker.isCardBlocked(key)) {
 		return "blocked";
@@ -25,7 +24,6 @@ std::string IdleState::HandleInput(std::string key)
 	else if (_data->_cardsInfoWorker._cardData.find(key) != _data->_cardsInfoWorker._cardData.end()) {
 		std::pair<std::string, int> res = _data->_cardsInfoWorker._cardData[key];
 		_data->machine->AddState(StateRef(new PinInputState(_data, key, std::stoi(res.first), res.second)), false);
-		_data->machine->ProcessStateChanges();
 		return "true";
 	}
 	else {

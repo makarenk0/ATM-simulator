@@ -29,6 +29,8 @@ namespace ATM_Interface.Tools.Navigation
             if (!ViewsDictionary.ContainsKey(viewType))
                 InitializeView(viewType);
             ContentOwner.Content = ViewsDictionary[viewType];
+
+            ContentOwner.Content.Init();
         }
 
         protected abstract void InitializeView(ViewType viewType);

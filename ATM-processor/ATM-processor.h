@@ -14,5 +14,6 @@ namespace ATMprocessor {
 		void turnOffMachine();
 		String^ handleInput(String^ path);
 		void updateMachine();
+		void popState();
 	};
 }

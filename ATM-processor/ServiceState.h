@@ -14,6 +14,7 @@ public:
 	void Pause();
 	void Resume();
 
+	
 private:
 	DataRef _data;
 };

@@ -38,5 +38,10 @@ namespace ATM_Interface.View
         {
             return false;
         }
+
+        public void Init()
+        {
+            _viewModel.Init();
+        }
     }
 }

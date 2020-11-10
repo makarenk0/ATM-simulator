@@ -18,7 +18,13 @@ namespace ATM_Interface.ViewModel
 
         public EnterCardNumberViewModel()
         {
+           
+        }
+
+        public void Init()
+        {
             _lastCombinations = new List<string>();
+            CardNumber = "";
         }
 
         public string CardNumber {

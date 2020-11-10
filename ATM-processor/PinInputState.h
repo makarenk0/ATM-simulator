@@ -1,6 +1,7 @@
 #pragma once
 #include "State.h"
 #include "DataRef.h"
+#include "CardAccessState.h"
 
 
 class PinInputState : public State

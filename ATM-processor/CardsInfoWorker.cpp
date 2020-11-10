@@ -18,8 +18,10 @@ bool CardsInfoWorker::isCardBlocked(const std::string& card)
 
 void CardsInfoWorker::blockCard(const std::string& card)
 {
-    _blockedCards.push_back(card);
-    saveBlockedCardsFile();
+    if (!isCardBlocked(card)){
+        _blockedCards.push_back(card);
+        saveBlockedCardsFile();
+    } 
 }
 
 void CardsInfoWorker::unblockCard(const std::string& card)
@@ -40,8 +42,10 @@ bool CardsInfoWorker::withdrawCash(const std::string& card, int amount)
 
 void CardsInfoWorker::unblockAll()
 {
-    _blockedCards.clear();
-    saveBlockedCardsFile();
+    if (!_blockedCards.empty()) {
+        _blockedCards.clear();
+        saveBlockedCardsFile();
+    }
 }
 
 void CardsInfoWorker::saveCardsInfoFile()

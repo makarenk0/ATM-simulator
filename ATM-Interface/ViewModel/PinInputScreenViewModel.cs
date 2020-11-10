@@ -16,7 +16,13 @@ namespace ATM_Interface.ViewModel
 
         public PinInputScreenViewModel()
         {
+            
+        }
+
+        public void Init()
+        {
             _attempts = 3;
+            Pincode = "";
         }
 
         public string Pincode

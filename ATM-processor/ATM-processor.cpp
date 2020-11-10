@@ -15,10 +15,17 @@ void ATMprocessor::Processor::turnOffMachine()
 String^ ATMprocessor::Processor::handleInput(String^ input)
 {
 	std::string unmanagedInput = msclr::interop::marshal_as<std::string>(input);
-	return msclr::interop::marshal_as<String^>(_machine->GetCurrentState().get()->HandleInput(unmanagedInput));
+	String^ respond = msclr::interop::marshal_as<String^>(_machine->GetCurrentState().get()->HandleInput(unmanagedInput));
+	_machine->ProcessStateChanges();
+	return respond;
 }
 
 void ATMprocessor::Processor::updateMachine()
 {
 	_machine->Updater();
+}
+
+void ATMprocessor::Processor::popState()
+{
+	_machine->RemoveState();
 }

@@ -10,9 +10,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="168"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -28,6 +32,9 @@
 
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="20 0 0 0" FontSize="15">Take all blocked cards</TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="20 0 0 0" FontSize="15" Text="{Binding BlockedCardsAmount, UpdateSourceTrigger=PropertyChanged, StringFormat='\{0\} cards are blocked'}" Foreground="DarkRed"></TextBlock>
-        
+
+
+        <Border Grid.Row="7" Grid.Column="3" BorderBrush="Black" BorderThickness="2" Background="Gray"/>
+        <TextBlock Grid.Row="7" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 0 0 0" FontSize="15">Exit</TextBlock>
     </Grid>
 </UserControl>

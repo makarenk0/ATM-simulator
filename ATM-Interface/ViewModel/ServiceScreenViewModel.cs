@@ -1,5 +1,7 @@
 ﻿using ATM_Interface.Models;
+using ATM_Interface.Tools.Managers;
 using ATM_Interface.Tools.MVVM;
+using ATM_Interface.Tools.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +13,11 @@ namespace ATM_Interface.ViewModel
         private String _blockedCardsAmount;
 
         public ServiceScreenViewModel()
+        {
+           
+        }
+
+        public void Init()
         {
             ProcessorModel.Processor.handleInput("SERVICE_MODE");
             BlockedCardsAmount = ProcessorModel.Processor.handleInput("BLOCKED_AMOUNT");
@@ -27,10 +34,19 @@ namespace ATM_Interface.ViewModel
         }
         public void KeyPadClick(string keyCode)
         {
-            if(keyCode == "L1")
+            switch (keyCode)
             {
-                ProcessorModel.Processor.handleInput("TAKE_BLOCKED_CARDS");
-                BlockedCardsAmount = "0";
+                case "L1":
+                    ProcessorModel.Processor.handleInput("TAKE_BLOCKED_CARDS");
+                    BlockedCardsAmount = "0";
+                    break;
+                case "R4":
+                    ProcessorModel.Processor.popState();
+                    NavigationManager.Instance.Navigate(ViewType.EnterCardNumber);
+                    break;
+                default:
+                    break;
+
             }
         }
     }

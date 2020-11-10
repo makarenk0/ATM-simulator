@@ -21,11 +21,13 @@ public:
 	StateRef& GetCurrentState();
 
 	void Updater();
+
+	int getCurrentStatesNumber();
 private:
 	std::stack<StateRef> _states;
 	StateRef _newState;
 
-	bool _isRemoving;
+	bool _isRemoving = false;
 	bool _isAdding;
 	bool _isReplacing;
 

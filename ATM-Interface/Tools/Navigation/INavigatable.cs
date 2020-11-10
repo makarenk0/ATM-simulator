@@ -7,5 +7,7 @@ namespace ATM_Interface.Tools.Navigation
         void KeyPadClick(String keyCode);
 
         bool CardDisplay();
+
+        void Init();
     }
 }

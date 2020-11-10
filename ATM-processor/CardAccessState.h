@@ -1,11 +1,12 @@
 #pragma once
 #include "State.h"
+#include "DataRef.h"
 
 
 class CardAccessState : public State
 {
 public:
-	CardAccessState(const std::string&, int pinCode, int balance);
+	CardAccessState(DataRef data, const std::string& card, int pinCode, int balance);
 
 	void Init();
 	std::string HandleInput(std::string key);
@@ -17,5 +18,6 @@ private:
 	std::string _cardNumber;
 	int _pinCode;
 	int _balance;
+	DataRef _data;
 };
 

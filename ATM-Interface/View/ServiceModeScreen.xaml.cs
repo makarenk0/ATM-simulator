@@ -38,5 +38,10 @@ namespace ATM_Interface.View
         {
             _viewModel.KeyPadClick(keyCode);
         }
+
+        public void Init()
+        {
+            _viewModel.Init();
+        }
     }
 }
