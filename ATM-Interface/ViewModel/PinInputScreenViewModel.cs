@@ -87,6 +87,11 @@ namespace ATM_Interface.ViewModel
                     }
                 }
             }
+            else if(keyCode == "R4")
+            {
+                ProcessorModel.Processor.popState();
+                NavigationManager.Instance.Navigate(ViewType.EnterCardNumber);
+            }
         }
     }
 }
