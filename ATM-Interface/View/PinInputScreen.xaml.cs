@@ -1,6 +1,5 @@
-﻿
+﻿using ATM_Interface.Tools.Navigation;
 using ATM_Interface.ViewModel;
-using ATM_Interface.Tools.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,26 +16,26 @@ using System.Windows.Shapes;
 namespace ATM_Interface.View
 {
     /// <summary>
-    /// Логика взаимодействия для EnterCardNumberScreen.xaml
+    /// Логика взаимодействия для PinInputScreen.xaml
     /// </summary>
-    public partial class EnterCardNumberScreen : UserControl, INavigatable
+    public partial class PinInputScreen : UserControl, INavigatable
     {
-        private EnterCardNumberViewModel _viewModel;
-        public EnterCardNumberScreen()
+        private PinInputScreenViewModel _viewModel;
+        public PinInputScreen()
         {
-            _viewModel = new EnterCardNumberViewModel();
+            _viewModel = new PinInputScreenViewModel();
             DataContext = _viewModel;
             InitializeComponent();
+        }
+
+        public bool CardDisplay()
+        {
+            return false;
         }
 
         public void KeyPadClick(string keyCode)
         {
             _viewModel.KeyPadClick(keyCode);
-        }
-
-        public bool CardDisplay()
-        {
-            return _viewModel.CardDisplay;
         }
     }
 }

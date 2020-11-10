@@ -1,29 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using ATMprocessor;
 
 namespace ATM_Interface.Models
 {
-    class ProcessorModel
+    static class ProcessorModel
     {
-        private Processor _processor;
-
-        public ProcessorModel()
-        {
-
-        }
-
-
-        public void Init()
+        private static Processor _processor;
+        
+        public static void Init()
         {
             _processor = new Processor();
             _processor.turnOnMachine();
+              
         }
 
-        //public Processor Processor { 
-            //get => _processor; 
-            //set => _processor = value; 
-        //}
+        public static Processor Processor { 
+            get => _processor;
+        }
     }
 }

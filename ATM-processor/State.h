@@ -4,7 +4,7 @@
 class State {
 public:
 	virtual void Init() = 0;
-	virtual bool HandleInput(std::string key) = 0;
+	virtual std::string HandleInput(std::string key) = 0;
 	virtual void Update() = 0;
 
 	virtual void Pause() {};

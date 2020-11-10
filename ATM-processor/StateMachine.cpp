@@ -4,15 +4,16 @@
 
 StateMachine::StateMachine()
 {
-	_isRunning = true;
+	//_isRunning = true;
 	this->AddState(StateRef(new IdleState(this)), true);
-	_updateThread = std::thread(&StateMachine::Updater, this);
+	ProcessStateChanges();
+	
 }
 
 StateMachine::~StateMachine()
 {
-	_isRunning = false;
-	_updateThread.join();
+	//_isRunning = false;
+	//_updateThread.join();
 
 }
 
@@ -54,9 +55,9 @@ StateRef& StateMachine::GetCurrentState() {
 
 void StateMachine::Updater()
 {
-	while (_isRunning) {
-		GetCurrentState().get()->Update();
-		ProcessStateChanges();
-		std::this_thread::sleep_for(std::chrono::seconds(1));
-	}
+	//while (_isRunning) {
+		//ProcessStateChanges();
+		//GetCurrentState().get()->Update();
+		//std::this_thread::sleep_for(std::chrono::seconds(1));
+	//}
 }

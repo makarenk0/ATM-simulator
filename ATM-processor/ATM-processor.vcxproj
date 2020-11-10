@@ -120,17 +120,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ATM-processor.h" />
+    <ClInclude Include="CardAccessState.h" />
     <ClInclude Include="CardsInfoWorker.h" />
+    <ClInclude Include="DataRef.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PinInputState.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="ServiceState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="ATM-processor.cpp" />
+    <ClCompile Include="CardAccessState.cpp" />
     <ClCompile Include="CardsInfoWorker.cpp" />
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="pch.cpp">
@@ -140,6 +144,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="PinInputState.cpp" />
+    <ClCompile Include="ServiceState.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>

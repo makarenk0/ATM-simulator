@@ -12,6 +12,7 @@ namespace ATMprocessor {
 	public:
 		void turnOnMachine();
 		void turnOffMachine();
-		bool handleInput(String^ path);
+		String^ handleInput(String^ path);
+		void updateMachine();
 	};
 }

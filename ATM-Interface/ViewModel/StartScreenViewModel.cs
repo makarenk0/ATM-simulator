@@ -21,8 +21,8 @@ namespace ATM_Interface.ViewModel
 
         public StartScreenViewModel()
         {
-            ProcessorModel m = new ProcessorModel();
-            m.Init();
+            ProcessorModel.Init();
+            
             NavigationManager.Instance.Initialize(new InitializationNavigationModel(this));
             NavigationManager.Instance.Navigate(ViewType.EnterCardNumber);
         }
@@ -70,10 +70,6 @@ namespace ATM_Interface.ViewModel
             {
                 CardDisplay = !CardDisplay;
                 CardDisplayVisibility = CardDisplay ? "Visible" : "Hidden";
-            }
-            if (_screenContent.ServiceMode())
-            {
-                NavigationManager.Instance.Navigate(ViewType.ServiceMode);
             }
         }
 

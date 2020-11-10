@@ -3,15 +3,8 @@
 #include "CardsInfoWorker.h"
 #include "StateMachine.h"
 #include "PinInputState.h"
-
-
-
-struct MainData {
-	StateMachine* machine;
-	CardsInfoWorker _cardsInfoWorker;
-};
-
-typedef std::shared_ptr<MainData> DataRef;
+#include "ServiceState.h"
+#include "DataRef.h"
 
 class IdleState : public State
 {
@@ -19,7 +12,7 @@ public:
 	IdleState(StateMachine* machine);
 
 	void Init();
-	bool HandleInput(std::string key);
+	std::string HandleInput(std::string key);
 	void Update();
 
 	void Pause();

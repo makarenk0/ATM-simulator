@@ -19,7 +19,8 @@ public:
 
 	void ProcessStateChanges();
 	StateRef& GetCurrentState();
-	
+
+	void Updater();
 private:
 	std::stack<StateRef> _states;
 	StateRef _newState;
@@ -29,9 +30,9 @@ private:
 	bool _isReplacing;
 
 
-	void Updater();
+	
 
-	bool _isRunning;
-	std::thread _updateThread;
+	//bool _isRunning;
+	//std::thread _updateThread;
 };
 

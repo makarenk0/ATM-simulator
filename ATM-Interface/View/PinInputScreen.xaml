@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="ATM_Interface.View.PinInputScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ATM_Interface.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="700">
+    <Grid>
+        <Grid.RowDefinitions>
+        <RowDefinition Height="80"/>
+        <RowDefinition Height="80"/>
+        <RowDefinition Height="90"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+
+    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20">Enter your pincode:</TextBlock>
+    <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Text="{Binding Pincode, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Text="{Binding PinError, UpdateSourceTrigger=PropertyChanged}" Foreground="Red"></TextBlock>
+    </Grid>
+</UserControl>

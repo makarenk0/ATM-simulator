@@ -1,6 +1,5 @@
-﻿
+﻿using ATM_Interface.Tools.Navigation;
 using ATM_Interface.ViewModel;
-using ATM_Interface.Tools.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,14 +16,15 @@ using System.Windows.Shapes;
 namespace ATM_Interface.View
 {
     /// <summary>
-    /// Логика взаимодействия для EnterCardNumberScreen.xaml
+    /// Логика взаимодействия для CardAccessScreen.xaml
     /// </summary>
-    public partial class EnterCardNumberScreen : UserControl, INavigatable
+    public partial class CardAccessScreen : UserControl, INavigatable
     {
-        private EnterCardNumberViewModel _viewModel;
-        public EnterCardNumberScreen()
+        private CardAccessViewModel _viewModel;
+
+        public CardAccessScreen()
         {
-            _viewModel = new EnterCardNumberViewModel();
+            _viewModel = new CardAccessViewModel();
             DataContext = _viewModel;
             InitializeComponent();
         }
@@ -36,7 +36,7 @@ namespace ATM_Interface.View
 
         public bool CardDisplay()
         {
-            return _viewModel.CardDisplay;
+            return false;
         }
     }
 }

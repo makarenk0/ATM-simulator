@@ -1,4 +1,5 @@
 ﻿using ATM_Interface.Tools.Navigation;
+using ATM_Interface.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,25 +20,23 @@ namespace ATM_Interface.View
     /// </summary>
     public partial class ServiceModeScreen : UserControl, INavigatable
     {
+        private ServiceScreenViewModel _viewModel;
         public ServiceModeScreen()
         {
+
+            _viewModel = new ServiceScreenViewModel();
+            DataContext = _viewModel;
             InitializeComponent();
         }
 
         public bool CardDisplay()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public void KeyPadClick(string keyCode)
         {
-            //throw new NotImplementedException();
-        }
-
-        public bool ServiceMode()
-        {
-            return true;
-            //throw new NotImplementedException();
+            _viewModel.KeyPadClick(keyCode);
         }
     }
 }

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using ATM_Interface.Models;
+using ATM_Interface.Tools.Managers;
+using ATM_Interface.Tools.Navigation;
 
 namespace ATM_Interface.ViewModel
 {
@@ -13,7 +15,6 @@ namespace ATM_Interface.ViewModel
         private String _cardError = "";
         private bool _cardDisplay;
         private List<String> _lastCombinations;
-        private bool _goToServiceMode = false;
 
         public EnterCardNumberViewModel()
         {
@@ -45,12 +46,6 @@ namespace ATM_Interface.ViewModel
             }
         }
 
-        public bool GoToServiceMode 
-        { 
-            get => _goToServiceMode; 
-            set => _goToServiceMode = value; 
-        }
-
         public void KeyPadClick(string keyCode)
         {
            
@@ -73,9 +68,14 @@ namespace ATM_Interface.ViewModel
                 }
                 else
                 {
-                    if (true) //ProcessorModel.Processor.handleInput(CardNumber)
+                    String res = ProcessorModel.Processor.handleInput(CardNumber);
+                    if (res == "true")
                     {
-                        CardError = "Success!";
+                        NavigationManager.Instance.Navigate(ViewType.PinInputMode);
+                    }
+                    else if(res == "blocked")
+                    {
+                        CardError = "Card is blocked!";
                     }
                     else
                     {
@@ -107,8 +107,8 @@ namespace ATM_Interface.ViewModel
 
             if(_lastCombinations.SequenceEqual(new List<string>() {"L1", "L3", "R2", "R4", "N1", "N2", "N3", "N4"}))
             {
-                GoToServiceMode = true;
                 CardNumber = "";
+                NavigationManager.Instance.Navigate(ViewType.ServiceMode);
             }
         }
     }
