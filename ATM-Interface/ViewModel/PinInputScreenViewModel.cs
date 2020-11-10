@@ -82,6 +82,7 @@ namespace ATM_Interface.ViewModel
                         {
                             --_attempts;
                             PinError = String.Concat("Pincode is incorrect!\n", "Attempts left: ", _attempts);
+                            Pincode = "";
                         }
                         
                     }
