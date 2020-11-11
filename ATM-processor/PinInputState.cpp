@@ -19,7 +19,6 @@ std::string PinInputState::HandleInput(std::string key)
 
 	if (_pinCode == std::stoi(key)) {
 		_data->machine->AddState(StateRef(new CardAccessState(_data, _cardNumber, _pinCode, _balance)), true);
-		_data->machine->ProcessStateChanges();
 		return "true";
 	}
 	else {

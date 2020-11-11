@@ -4,17 +4,12 @@
 
 StateMachine::StateMachine()
 {
-	//_isRunning = true;
 	this->AddState(StateRef(new IdleState(this)), false);
-	ProcessStateChanges();
 	
 }
 
 StateMachine::~StateMachine()
 {
-	//_isRunning = false;
-	//_updateThread.join();
-
 }
 
 void StateMachine::AddState(StateRef newState, bool isReplacing) {
@@ -24,7 +19,6 @@ void StateMachine::AddState(StateRef newState, bool isReplacing) {
 }
 void StateMachine::RemoveState() {
 	this->_isRemoving = true;
-	ProcessStateChanges();
 }
 void StateMachine::ProcessStateChanges() {
 	if (this->_isRemoving && !this->_states.empty()) {
@@ -56,11 +50,8 @@ StateRef& StateMachine::GetCurrentState() {
 
 void StateMachine::Updater()
 {
-	//while (_isRunning) {
-		//ProcessStateChanges();
-		//GetCurrentState().get()->Update();
-		//std::this_thread::sleep_for(std::chrono::seconds(1));
-	//}
+	ProcessStateChanges();
+    GetCurrentState().get()->Update();
 }
 
 int StateMachine::getCurrentStatesNumber()

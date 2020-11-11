@@ -19,9 +19,12 @@ namespace ATM_Interface.View
     /// </summary>
     public partial class StartScreen : UserControl
     {
+        private StartScreenViewModel _viewModel;
+        
         public StartScreen()
         {
-            DataContext = new StartScreenViewModel();
+            _viewModel = new StartScreenViewModel();
+            DataContext = _viewModel;
             InitializeComponent();
         }
     }

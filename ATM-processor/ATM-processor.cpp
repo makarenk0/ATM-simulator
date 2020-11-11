@@ -16,7 +16,7 @@ String^ ATMprocessor::Processor::handleInput(String^ input)
 {
 	std::string unmanagedInput = msclr::interop::marshal_as<std::string>(input);
 	String^ respond = msclr::interop::marshal_as<String^>(_machine->GetCurrentState().get()->HandleInput(unmanagedInput));
-	_machine->ProcessStateChanges();
+	_machine->ProcessStateChanges();  //one extra update right after handle input in case changing state
 	return respond;
 }
 
@@ -28,4 +28,5 @@ void ATMprocessor::Processor::updateMachine()
 void ATMprocessor::Processor::popState()
 {
 	_machine->RemoveState();
+	_machine->ProcessStateChanges();  //one extra update right after popping state
 }

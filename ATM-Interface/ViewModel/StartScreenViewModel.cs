@@ -4,7 +4,9 @@ using ATM_Interface.Tools.MVVM;
 using ATM_Interface.Tools.Navigation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
+using System.Windows;
 
 namespace ATM_Interface.ViewModel
 {
@@ -19,13 +21,21 @@ namespace ATM_Interface.ViewModel
         private String _cardDisplayVisibility = "Hidden";
         private bool _cardDisplay = false;
 
+
+
         public StartScreenViewModel()
         {
             ProcessorModel.Init();
-            
+            Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
             NavigationManager.Instance.Initialize(new InitializationNavigationModel(this));
             NavigationManager.Instance.Navigate(ViewType.EnterCardNumber);
         }
+
+        void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            ProcessorModel.Stop();
+        }
+
 
         public RelayCommand<Object> BottomKeyPadCommand
         {

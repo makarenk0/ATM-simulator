@@ -31,10 +31,5 @@ private:
 	bool _isAdding;
 	bool _isReplacing;
 
-
-	
-
-	//bool _isRunning;
-	//std::thread _updateThread;
 };
 
