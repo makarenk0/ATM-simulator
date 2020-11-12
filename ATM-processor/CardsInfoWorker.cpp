@@ -5,10 +5,11 @@ CardsInfoWorker::CardsInfoWorker()
 {
 }
 
-CardsInfoWorker::CardsInfoWorker(const std::string& cardsFilepath, const std::string& blockedFilepath) : _cardsFilepath(cardsFilepath), _blockedFilepath(blockedFilepath)
+CardsInfoWorker::CardsInfoWorker(const std::string& cardsFilepath, const std::string& blockedFilepath, const std::string& atmCashFilepath) : _cardsFilepath(cardsFilepath), _blockedFilepath(blockedFilepath), _atmCashFilepath(atmCashFilepath)
 {
 	parseDataCardsFile(cardsFilepath);
     parseBlockedCardsFile(blockedFilepath);
+    parseATMCashAmount(atmCashFilepath);
 }
 
 bool CardsInfoWorker::isCardBlocked(const std::string& card)
@@ -30,12 +31,22 @@ void CardsInfoWorker::unblockCard(const std::string& card)
     saveBlockedCardsFile();
 }
 
-bool CardsInfoWorker::withdrawCash(const std::string& card, int amount)
+bool CardsInfoWorker::withdrawSum(const std::string& card, int amount)
 {
     if (_cardData[card].second >= amount) {
         _cardData[card].second -= amount;
         saveCardsInfoFile();
         return true;
+    }
+    return false;
+}
+
+bool CardsInfoWorker::withdrawCash(const std::string& card, int amount)
+{
+    if (_atmCash >= amount) {
+        _atmCash -= amount;
+        saveATMCashFile();
+        return withdrawSum(card, amount);
     }
     return false;
 }
@@ -48,6 +59,22 @@ void CardsInfoWorker::unblockAll()
     }
 }
 
+bool CardsInfoWorker::rechargeCardBalance(const std::string& card, int amount)
+{
+    if (cardExists(card)) {
+        _cardData[card].second += amount;
+        saveCardsInfoFile();
+        return true;
+    }
+    return false;
+}
+
+void CardsInfoWorker::rechargeATMCash(int amount)
+{
+    _atmCash += amount;
+    saveATMCashFile();
+}
+
 void CardsInfoWorker::saveCardsInfoFile()
 {
     std::ofstream cardsFile;
@@ -57,6 +84,19 @@ void CardsInfoWorker::saveCardsInfoFile()
         cardsFile << x.first << " " << x.second.first << " " << x.second.second << "\n";
     }
     cardsFile.close();
+}
+
+int CardsInfoWorker::getCardBalance(const std::string& card)
+{
+    return _cardData[card].second;
+}
+
+bool CardsInfoWorker::cardExists(const std::string& card)
+{
+    if (_cardData.find(card) != _cardData.end()) {
+        return true;
+    }
+    return false;
 }
 
 void CardsInfoWorker::parseDataCardsFile(const std::string& path)
@@ -90,6 +130,17 @@ void CardsInfoWorker::parseBlockedCardsFile(const std::string& path)
 
 }
 
+void CardsInfoWorker::parseATMCashAmount(const std::string& path)
+{
+    std::ifstream inFile;
+    inFile.open(path);
+
+    std::string line;
+    std::getline(inFile, line);
+    _atmCash = std::stoi(line);
+    inFile.close();
+}
+
 void CardsInfoWorker::saveBlockedCardsFile()
 {
     std::ofstream blockFile;
@@ -98,6 +149,16 @@ void CardsInfoWorker::saveBlockedCardsFile()
         blockFile << _blockedCards[i] << "\n";
     }
     blockFile.close();
+}
+
+void CardsInfoWorker::saveATMCashFile()
+{
+    std::ofstream cashFile;
+    cashFile.open(_atmCashFilepath);
+    
+    cashFile << _atmCash << "\n";
+    
+    cashFile.close();
 }
 
 std::vector<std::string> CardsInfoWorker::split(std::string s, std::string delimiter) {

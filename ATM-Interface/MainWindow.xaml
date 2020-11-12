@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:ATM_Interface"
         xmlns:view="clr-namespace:ATM_Interface.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="1600">
+        Title="MainWindow" Height="900" Width="1600"
+        ResizeMode="NoResize">
     <Grid Background="#145A32">
         <view:StartScreen></view:StartScreen>
     </Grid>

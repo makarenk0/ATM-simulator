@@ -28,6 +28,21 @@ namespace ATM_Interface.Tools.Navigation
                 case ViewType.CardAccessMode:
                     ViewsDictionary.Add(viewType, new CardAccessScreen());
                     break;
+                case ViewType.BalanceView:
+                    ViewsDictionary.Add(viewType, new BalanceViewScreen());
+                    break;
+                case ViewType.PhoneBalanceRechargeMode:
+                    ViewsDictionary.Add(viewType, new PhoneBalRechargeScreen());
+                    break;
+                case ViewType.CustomSumMode:
+                    ViewsDictionary.Add(viewType, new CustomSumWithdrawScreen());
+                    break;
+                case ViewType.WithdrawCashMode:
+                    ViewsDictionary.Add(viewType, new WithdrawCashScreen());
+                    break;
+                case ViewType.TransferSumMode:
+                    ViewsDictionary.Add(viewType, new TransferSumScreen());
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(viewType), viewType, null);
             }

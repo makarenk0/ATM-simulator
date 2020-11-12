@@ -25,16 +25,27 @@
             <ColumnDefinition Width="190"/>
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="2" Background="Gray"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">ATM cash:</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Text="{Binding ATMCash, UpdateSourceTrigger=PropertyChanged, StringFormat='\{0\} ₴'}" Foreground="DarkGreen" Margin="0 0 0 30"></TextBlock>
 
 
         <TextBlock Grid.Row="0" Grid.Column="2" Foreground="DarkRed" HorizontalAlignment="Center" FontSize="30">Service mode active!</TextBlock>
 
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="2" Background="Gray"/>
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="20 0 0 0" FontSize="15">Take all blocked cards</TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="20 0 0 0" FontSize="15" Text="{Binding BlockedCardsAmount, UpdateSourceTrigger=PropertyChanged, StringFormat='\{0\} cards are blocked'}" Foreground="DarkRed"></TextBlock>
 
-
         <Border Grid.Row="7" Grid.Column="3" BorderBrush="Black" BorderThickness="2" Background="Gray"/>
         <TextBlock Grid.Row="7" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 0 0 0" FontSize="15">Exit</TextBlock>
+
+        <Border Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="2" Background="Gray"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 0 0 0" FontSize="15">Recharge ATM cash</TextBlock>
+
+
+        <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding RechargeFormVisibility}" FontSize="20">Enter sum:</TextBlock>
+        <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="2" Height="28" Width="200" Visibility="{Binding RechargeFormVisibility}">
+            <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding RechargeFormVisibility}" FontSize="20" Text="{Binding CashToRecharge, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        </Border>
     </Grid>
 </UserControl>

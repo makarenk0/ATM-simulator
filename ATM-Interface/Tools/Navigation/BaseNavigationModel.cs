@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 
 namespace ATM_Interface.Tools.Navigation
@@ -24,13 +25,13 @@ namespace ATM_Interface.Tools.Navigation
             get { return _viewsDictionary; }
         }
 
-        public void Navigate(ViewType viewType)
+        public void Navigate(ViewType viewType, String arg = "")
         {
             if (!ViewsDictionary.ContainsKey(viewType))
                 InitializeView(viewType);
             ContentOwner.Content = ViewsDictionary[viewType];
 
-            ContentOwner.Content.Init();
+            ContentOwner.Content.Init(arg);
         }
 
         protected abstract void InitializeView(ViewType viewType);

@@ -19,7 +19,10 @@
 
 
         <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20">Enter your card:</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Text="{Binding CardNumber, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+
+        <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="2" Height="28" Width="250">
+            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Text="{Binding CardNumber, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        </Border>
         <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Text="{Binding CardError, UpdateSourceTrigger=PropertyChanged}" Foreground="Red"></TextBlock>
         
     </Grid>

@@ -8,6 +8,6 @@ namespace ATM_Interface.Tools.Navigation
 
         bool CardDisplay();
 
-        void Init();
+        void Init(String arg = "");
     }
 }

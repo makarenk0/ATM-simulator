@@ -91,6 +91,7 @@ namespace ATM_Interface.ViewModel
             else if(keyCode == "R4")
             {
                 ProcessorModel.Processor.popState();
+                PinError = "";
                 NavigationManager.Instance.Navigate(ViewType.EnterCardNumber);
             }
         }

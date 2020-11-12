@@ -1,15 +1,22 @@
-﻿namespace ATM_Interface.Tools.Navigation
+﻿using System;
+
+namespace ATM_Interface.Tools.Navigation
 {
     internal enum ViewType
     {
         EnterCardNumber,
         ServiceMode,
         PinInputMode,
-        CardAccessMode
+        CardAccessMode,
+        BalanceView,
+        PhoneBalanceRechargeMode,
+        CustomSumMode,
+        WithdrawCashMode,
+        TransferSumMode
     }
 
     interface INavigationModel
     {
-        void Navigate(ViewType viewType);
+        void Navigate(ViewType viewType, String arg = "");
     }
 }

@@ -18,6 +18,14 @@ std::string ServiceState::HandleInput(std::string key)
 	else if (key == "BLOCKED_AMOUNT") {
 		return std::to_string(_data->_cardsInfoWorker._blockedCards.size());
 	}
+	else if (key == "ATM_CASH") {
+		return std::to_string(_data->_cardsInfoWorker._atmCash);
+	}
+	else {
+		int amount = std::stoi(key);
+		_data->_cardsInfoWorker.rechargeATMCash(amount);
+		return "true";
+	}
 }
 
 void ServiceState::Update()

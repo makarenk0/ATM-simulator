@@ -1,4 +1,5 @@
 ﻿using ATM_Interface.Tools.Navigation;
+using System;
 
 namespace ATM_Interface.Tools.Managers
 {
@@ -27,9 +28,9 @@ namespace ATM_Interface.Tools.Managers
             _navigationModel = navigationModel;
         }
 
-        internal void Navigate(ViewType viewType)
+        internal void Navigate(ViewType viewType, String arg = "")
         {
-            _navigationModel.Navigate(viewType);
+            _navigationModel.Navigate(viewType, arg);
         }
 
         private NavigationManager()

@@ -18,7 +18,16 @@ namespace ATM_Interface.ViewModel
             switch (keyCode)
             {
                 case "L1":
-                    
+                    NavigationManager.Instance.Navigate(ViewType.BalanceView);
+                    break;
+                case "L2":
+                    NavigationManager.Instance.Navigate(ViewType.PhoneBalanceRechargeMode);
+                    break;
+                case "L3":
+                    NavigationManager.Instance.Navigate(ViewType.WithdrawCashMode);
+                    break;
+                case "L4":
+                    NavigationManager.Instance.Navigate(ViewType.TransferSumMode);
                     break;
                 case "R4":
                     ProcessorModel.Processor.popState();
