@@ -12,7 +12,8 @@ namespace ATM_Interface.Tools.Navigation
         PhoneBalanceRechargeMode,
         CustomSumMode,
         WithdrawCashMode,
-        TransferSumMode
+        TransferSumMode,
+        ChangePinMode
     }
 
     interface INavigationModel

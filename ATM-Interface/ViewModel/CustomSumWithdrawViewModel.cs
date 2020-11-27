@@ -16,7 +16,7 @@ namespace ATM_Interface.ViewModel
         private string _withdrawSum;
         private string _withdrawSumError;
         private string _successText;
-        private string _cartToTransfer;
+        private string _cartToTransfer = "";
 
 
 
@@ -82,7 +82,14 @@ namespace ATM_Interface.ViewModel
             }
             else if(keyCode == "ENTER")
             {
-                Withdraw(WithdrawSum);
+                if (String.IsNullOrEmpty(WithdrawSum) || WithdrawSum[0] == '0')
+                {
+                    WithdrawSumError = "Please enter valid sum to withdraw";
+                }
+                else
+                {
+                    Withdraw(WithdrawSum);
+                }
             }
             else if (keyCode == "ERASE")
             {

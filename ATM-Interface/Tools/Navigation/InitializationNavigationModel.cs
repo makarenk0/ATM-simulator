@@ -43,6 +43,9 @@ namespace ATM_Interface.Tools.Navigation
                 case ViewType.TransferSumMode:
                     ViewsDictionary.Add(viewType, new TransferSumScreen());
                     break;
+                case ViewType.ChangePinMode:
+                    ViewsDictionary.Add(viewType, new ChangePinScreen());
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(viewType), viewType, null);
             }

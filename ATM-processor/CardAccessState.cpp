@@ -15,6 +15,25 @@ std::string CardAccessState::HandleInput(std::string key)
 		std::string balance = std::to_string(_data->_cardsInfoWorker.getCardBalance(_cardNumber));
 		return balance;
 	}
+	else if (key.substr(0, 6) == "NEWPIN") {
+		std::string pin = std::move(key.substr(key.find("=") + 1));
+		_data->_cardsInfoWorker.changeCardPin(_cardNumber, pin);
+		return "true";
+	}
+	else if (key.substr(0, 8) == "CHECKPIN") {
+		std::string pin = std::move(key.substr(key.find("=") + 1));
+		if (std::stoi(pin) == _pinCode) {
+			return "true";
+		}
+		return "false";
+	}
+	else if (key.substr(0, 5) == "EXIST") {
+		std::string card = std::move(key.substr(key.find("=") + 1));
+		if (_data->_cardsInfoWorker.cardExists(card)) {
+			return "true";
+		}
+		return "false";
+	}
 	else if (key.substr(0, 11) == "WITHDRAWSUM") {
 		int toWithdraw = std::stoi(key.substr(12));
 		if (_data->_cardsInfoWorker.getCardBalance(_cardNumber) >= toWithdraw) {

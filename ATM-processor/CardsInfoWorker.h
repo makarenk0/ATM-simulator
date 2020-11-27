@@ -28,6 +28,7 @@ public:
 	int getCardBalance(const std::string& card);
 
 	bool cardExists(const std::string& card);
+	void changeCardPin(const std::string& card, const std::string& newPin);
 private:
 	void parseDataCardsFile(const std::string& path);
 	void parseBlockedCardsFile(const std::string& path);

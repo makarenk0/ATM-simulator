@@ -99,6 +99,12 @@ bool CardsInfoWorker::cardExists(const std::string& card)
     return false;
 }
 
+void CardsInfoWorker::changeCardPin(const std::string& card, const std::string& newPin)
+{
+    _cardData[card].first = newPin;
+    saveCardsInfoFile();
+}
+
 void CardsInfoWorker::parseDataCardsFile(const std::string& path)
 {
 	std::ifstream inFile;

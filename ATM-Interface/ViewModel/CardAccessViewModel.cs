@@ -29,6 +29,9 @@ namespace ATM_Interface.ViewModel
                 case "L4":
                     NavigationManager.Instance.Navigate(ViewType.TransferSumMode);
                     break;
+                case "R1":
+                    NavigationManager.Instance.Navigate(ViewType.ChangePinMode);
+                    break;
                 case "R4":
                     ProcessorModel.Processor.popState();
                     NavigationManager.Instance.Navigate(ViewType.EnterCardNumber);

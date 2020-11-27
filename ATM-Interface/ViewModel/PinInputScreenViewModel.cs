@@ -49,17 +49,17 @@ namespace ATM_Interface.ViewModel
         {
 
 
-            if (keyCode[0] == 'N' && Pincode.Length < 4)
+            if (keyCode[0] == 'N' && Pincode.Length < 4 && _attempts > 0)
             {
                 Pincode += keyCode[1];
                 PinError = "";
             }
-            else if (keyCode == "ERASE")
+            else if (keyCode == "ERASE" && _attempts > 0)
             {
                 Pincode = String.IsNullOrEmpty(Pincode) ? "" : Pincode.Substring(0, Pincode.Length - 1);
                 PinError = "";
             }
-            else if (keyCode == "ENTER")
+            else if (keyCode == "ENTER" && _attempts > 0)
             {
                 if (Pincode.Length != 4)
                 {
@@ -73,18 +73,18 @@ namespace ATM_Interface.ViewModel
                     }
                     else
                     {
-                        if(_attempts == 1)
+                        --_attempts;
+                        if (_attempts == 0)
                         {
                             ProcessorModel.Processor.handleInput("BLOCK_CARD");
                             PinError = "Your card is blocked! \n Please, contact the support service.";
                         }
                         else
-                        {
-                            --_attempts;
+                        {    
                             PinError = String.Concat("Pincode is incorrect!\n", "Attempts left: ", _attempts);
                             Pincode = "";
                         }
-                        
+
                     }
                 }
             }

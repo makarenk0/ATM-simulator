@@ -103,7 +103,7 @@ namespace ATM_Interface.ViewModel
             }
             else if (keyCode == "ENTER")
             {
-                if (CardNumber.Length != 16)
+                if (CardNumber.Length != 16 || ProcessorModel.Processor.handleInput(String.Concat("EXIST=", CardNumber)) != "true")
                 {
                     Error = "Card number is not valid!";
                 }
